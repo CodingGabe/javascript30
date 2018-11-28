@@ -58,6 +58,16 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
+  // added an event listener to the entire window
+  // Set a variable for when a user hits a key it logs it
+  // used ES6 as depicted by the curly brackets
+  window.addEventListener('keydown', function(e) {
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    if(!audio) return; // stops the function from running if no key associated is pressed
+    console.log(audio);
+    audio.currentTime = 0 // resets to the start for mulitple button presses
+    audio.play(); // Plays the sound after pressing key
+  });
 
 </script>
 
